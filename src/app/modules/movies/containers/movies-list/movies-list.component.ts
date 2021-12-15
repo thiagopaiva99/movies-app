@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Movie } from 'src/app/core/models';
+import { MoviesService } from 'src/app/core/services/movies.service';
 import { Category } from '../../movies.model';
 
 @Component({
@@ -12,16 +15,23 @@ export class MoviesListComponent implements OnInit {
   private category: string = 'most-popular';
 
   public categories: Map<string, Category> = new Map([
-    ['most-popular', { apiValue: 'most_popular', text: 'Most Popular' }],
+    ['most-popular', { apiValue: 'popular', text: 'Most Popular' }],
     ['now-playing', { apiValue: 'now_playing', text: 'Now Playing' }],
     ['top-rated', { apiValue: 'top_rated', text: 'Top Rated' }],
   ]);
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  public movies$!: Observable<Movie[]>;
+
+  constructor(private activatedRoute: ActivatedRoute, private moviesService: MoviesService) { }
 
   ngOnInit(): void {
     this.category = this.activatedRoute.snapshot.params['category'];
-    console.log(this.category)
+
+    const category = this.categories.has(this.category)
+      ? this.categories.get(this.category)?.apiValue
+      : this.categories.entries().next().value[1].apiValue;
+
+    this.movies$ = this.moviesService.getMoviesByCategory(category);
   }
 
 }

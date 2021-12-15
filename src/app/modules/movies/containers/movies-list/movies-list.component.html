@@ -3,4 +3,10 @@
   <div class="tabs-container">
     <app-tab-pills [tabs]="categories"></app-tab-pills>
   </div>
+
+  <div>
+    <div *ngFor="let movie of movies$ | async">
+      {{ movie.title }}
+    </div>
+  </div>
 </section>
