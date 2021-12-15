@@ -8,6 +8,9 @@ import { InfiniteScrollComponent } from './infinite-scroll.component';
   declarations: [
     InfiniteScrollComponent
   ],
+  exports: [
+    InfiniteScrollComponent
+  ],
   imports: [
     CommonModule
   ]
