@@ -8,6 +8,7 @@ import { MovieItemComponent } from './movie-item.component';
   declarations: [
     MovieItemComponent
   ],
+  exports: [MovieItemComponent],
   imports: [
     CommonModule
   ]
