@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movies-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesListComponent implements OnInit {
 
-  constructor() { }
+  private category: string = 'most-popular';
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.category = this.activatedRoute.snapshot.params['category'];
+    console.log(this.category)
   }
 
 }
