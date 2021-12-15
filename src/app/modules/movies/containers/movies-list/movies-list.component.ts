@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Category } from '../../movies.model';
 
 @Component({
   selector: 'app-movies-list',
@@ -9,6 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 export class MoviesListComponent implements OnInit {
 
   private category: string = 'most-popular';
+
+  public categories: Map<string, Category> = new Map([
+    ['most-popular', { apiValue: 'most_popular', text: 'Most Popular' }],
+    ['now-playing', { apiValue: 'now_playing', text: 'Now Playing' }],
+    ['top-rated', { apiValue: 'top_rated', text: 'Top Rated' }],
+  ]);
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
