@@ -1,0 +1,16 @@
+:host {
+  ul {
+    display: flex;
+    gap: 15px;
+
+    li {
+      padding: 10px;
+      border-radius: 50px;
+      cursor: pointer;
+
+      &.active {
+        background-color: #005ff8;
+      }
+    }
+  }
+}

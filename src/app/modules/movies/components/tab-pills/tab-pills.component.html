@@ -1,3 +1,3 @@
 <ul>
-  <li *ngFor="let tab of tabsList;">{{ tab.text }}</li>
+  <li *ngFor="let tab of tabsList;" (click)="onTabClick(tab)" [ngClass]="{ active: activeTab === tab.apiValue }">{{ tab.text }}</li>
 </ul>
