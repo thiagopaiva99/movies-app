@@ -9,6 +9,7 @@ export interface MovieApiResponse {
 }
 
 export interface Movie {
+  imageUrl: string;
   posterPath?: string;
   releaseDate: string;
   genreIds: string[]
