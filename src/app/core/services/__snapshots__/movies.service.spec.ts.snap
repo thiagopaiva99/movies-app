@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesService should get movie by id: Movie By Id 1`] = `
+Object {
+  "backdropUrl": "undefinedw300undefined",
+  "imageUrl": "undefinedw342undefined",
+  "page": 1,
+  "results": Array [
+    Object {
+      "backdrop_path": "/some-file-path",
+      "genres": Array [],
+      "id": 123123,
+      "original_language": "pt",
+      "overview": "some description",
+      "poster_path": "/some-file-path",
+      "release_date": "2021-12-17",
+      "title": "some title",
+      "vote_average": 78,
+    },
+  ],
+}
+`;
+
+exports[`MoviesService should get movie credits: Movie Casting 1`] = `
+Array [
+  Object {
+    "character": "some character",
+    "id": 123213,
+    "imageUrl": "undefinedw342/some-file-path",
+    "name": "some name",
+    "profilePath": "/some-file-path",
+  },
+]
+`;
+
+exports[`MoviesService should get movies by category: Movies List 1`] = `
+Array [
+  Object {
+    "backdropPath": "/some-file-path",
+    "genres": Array [],
+    "id": 123123,
+    "imageUrl": "undefinedw342/some-file-path",
+    "originalLanguage": "pt",
+    "overview": "some description",
+    "posterPath": "/some-file-path",
+    "releaseDate": "2021-12-17",
+    "title": "some title",
+    "voteAverage": 78,
+  },
+]
+`;
+
+exports[`MoviesService should get movies by recommendation: Recommendations List 1`] = `
+Array [
+  Object {
+    "backdropPath": "/some-file-path",
+    "genres": Array [],
+    "id": 123123,
+    "imageUrl": "undefinedw342/some-file-path",
+    "originalLanguage": "pt",
+    "overview": "some description",
+    "posterPath": "/some-file-path",
+    "releaseDate": "2021-12-17",
+    "title": "some title",
+    "voteAverage": 78,
+  },
+]
+`;
+
+exports[`MoviesService should search movie by query: Search by Query 1`] = `
+Array [
+  Object {
+    "backdropPath": "/some-file-path",
+    "genres": Array [],
+    "id": 123123,
+    "imageUrl": "undefinedw342/some-file-path",
+    "originalLanguage": "pt",
+    "overview": "some description",
+    "posterPath": "/some-file-path",
+    "releaseDate": "2021-12-17",
+    "title": "some title",
+    "voteAverage": 78,
+  },
+]
+`;
