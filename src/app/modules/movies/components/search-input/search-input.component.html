@@ -1,0 +1,4 @@
+<section>
+  <input [formControl]="input" type="search" placeholder="Start typing to search..." (keyup.enter)="onSearchEvent()" [ngClass]="{'with-search-button': useSearchButton}">
+  <button *ngIf="useSearchButton" (click)="onSearchEvent()">Search</button>
+</section>
