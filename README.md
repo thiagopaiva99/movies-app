@@ -13,7 +13,7 @@ This project was built using Angular.
 
 ## Running
 
-For running the app, you can access this [link](https://movies-app-n960c6f1x-thiagopaiva99.vercel.app), or if you prefer to run locally, you can do the following:
+For running the app, you can access this [link](https://movies-app-thiagopaiva99.vercel.app/), or if you prefer to run locally, you can do the following:
 
 ```bash
 $ git clone https://github.com/thiagopaiva99/movies-app.git movies-app
