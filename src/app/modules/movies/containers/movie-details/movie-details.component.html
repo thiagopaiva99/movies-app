@@ -1,1 +1,46 @@
-<p>movie-details works!</p>
+<section *ngIf="movie" class="container">
+  <div class="poster-container">
+    <img [lazyLoad]="movie.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="">
+  </div>
+  <div class="movie-information-container">
+    <h1>{{ movie.title }}</h1>
+    <div class="movie-content">
+      <span>{{ movie.releaseDate | date: 'dd/MM/yyyy' }} ({{ movie.originalLanguage | uppercase }})</span>  -  <span *ngFor="let genre of movie.genres">{{ genre.name }}, </span>
+    </div>
+    <p>{{ movie.overview }}</p>
+
+    <section class="subtitle-container">
+      <h2>Casting</h2>
+      <div>
+        <button (click)="slidePrevious(charactersList)"><</button>
+        <button (click)="slideNext(charactersList)">></button>
+      </div>
+    </section>
+    <div #charactersList class="cast">
+      <div *ngFor="let character of cast$ | async" class="character">
+        <img [lazyLoad]="character.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="">
+        <div>
+          <h3>{{ character.name }}</h3>
+          <h4>{{ character.character }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <section class="subtitle-container">
+      <h2>Recommendations</h2>
+      <div>
+        <button (click)="slidePrevious(recommendationsList)"><</button>
+        <button (click)="slideNext(recommendationsList)">></button>
+      </div>
+    </section>
+    <div #recommendationsList class="recommendations">
+      <div *ngFor="let recommendation of recommendations$ | async" class="recommendation" (click)="onRecommendationClick(recommendation)">
+        <img [lazyLoad]="recommendation.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="">
+        <div>
+          <h3>{{ recommendation.title }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img [src]="movie.backdropUrl" class="movie-backdrop" alt="">
+</section>
