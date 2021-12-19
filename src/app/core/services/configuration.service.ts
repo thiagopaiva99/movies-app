@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs';
+import { first, map, tap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { Configuration, ImageConfiguration, ImageConfigurationApiResponse } from '../models';
 import { ApiUtilsService } from './api-utils.service';
 
@@ -18,17 +19,14 @@ export class ConfigurationService {
   }
 
   setConfiguration() {
-    // @TODO should be destroyed
-    this.httpClient.get<Configuration>(`https://api.themoviedb.org/3/configuration`)
+    this.httpClient.get<Configuration>(`${environment.apiUrl}/configuration`)
       .pipe(map((configuration: Configuration) => configuration.images),
       map((imagesConfiguration: ImageConfigurationApiResponse) => this.apiUtilsService.rewriteProperties<ImageConfiguration>(imagesConfiguration)),
       tap((imageConfiguration: ImageConfiguration) => {
         Object.entries(imageConfiguration).forEach(([key, value]) => this.configuration.set(key, value));
-        console.log(this.configuration)
-      }))
-      .subscribe(() => {
-
-      })
+      }),
+      first())
+      .subscribe(() => {})
   }
 
 }
