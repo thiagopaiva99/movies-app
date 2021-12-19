@@ -9,7 +9,11 @@
     </div>
   </app-infinite-scroll>
   <ng-template #emptyListSection>
-    nao teve resultados :(
+    <section *ngIf="!isLoading" class="empty-results-section">
+      <i>😞</i>
+      <h2>There is no results for your search</h2>
+      <h3>Please try to search another term or go to <a routerLink="/">homepage</a></h3>
+    </section>
   </ng-template>
   <app-spinner *ngIf="isLoading"></app-spinner>
 </section>
