@@ -64,3 +64,4 @@ I know there are things that I can do better, but for reason times I've decided 
 - Html accessibility;
 - Html semantic;
 - API token versioning (I let it here for be easier at this moment, but for sure it should have not appear on the repository);
+- Loupe and Star icons (I was not able to export them on figma, so I have to search and look for icons);
