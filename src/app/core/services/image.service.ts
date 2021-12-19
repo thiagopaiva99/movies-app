@@ -6,11 +6,36 @@ import { ConfigurationService } from './configuration.service';
 })
 export class ImageService {
 
-  constructor(private configurationService: ConfigurationService) { }
+  private posterImageSize!: string;
 
-  // @TODO validate by resolution
-  getUrl(imagePath: string): string {
-      return this.configurationService.getConfiguration('baseUrl') + 'w154' + imagePath;
+  constructor(private configurationService: ConfigurationService) {
+    this.posterImageSize = this.getPosterSizeForResolution()
+  }
+
+    private getPosterSizeForResolution() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 320) {
+      return 'w92'
     }
+
+    if (windowWidth > 320 && windowWidth <= 768) {
+      return 'w154'
+    }
+
+    if (windowWidth > 768 && windowWidth <= 1142) {
+      return 'w342'
+    }
+
+    return 'w500'
+  }
+
+  getUrl(imagePath: string): string {
+    return this.configurationService.getConfiguration('baseUrl') + this.posterImageSize + imagePath;
+  }
+
+  getBackdropUrl(backdropPath: string): string {
+    return this.configurationService.getConfiguration('baseUrl') + 'w300' + backdropPath;
+  }
 
 }
