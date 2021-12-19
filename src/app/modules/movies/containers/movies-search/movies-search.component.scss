@@ -1,0 +1,61 @@
+:host {
+  .container {
+    max-width: 1128px;
+    margin: 80px auto;
+
+    @media (min-width: 768px) and (max-width: 1142px) {
+      margin: 80px 24px;
+    }
+
+    @media (min-width: 321px) and (max-width: 768px) {
+      margin: 40px 24px;
+    }
+
+    @media (max-width: 320px) {
+      margin: 40px 16px;
+    }
+  }
+
+  .search-input-container {
+    margin-bottom: 64px;
+
+    &:after {
+      content: "";
+      width: 100%;
+      border-bottom: solid 1px #262626;
+      position: absolute;
+      top: 160px;
+      left: 0;
+      right: 0;
+
+      @media (max-width: 768px) {
+        top: 120px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 40px;
+    font-family: "Bebas Neue", cursive;
+    margin-bottom: 48px;
+  }
+
+  .movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 48px;
+
+    @media (min-width: 321px) and (max-width: 768px) {
+      gap: 16px;
+    }
+
+    app-movie-item {
+      flex: 1 0 15%;
+
+      @media (max-width: 320px) {
+        flex: 1 0 100%;
+      }
+    }
+  }
+}
