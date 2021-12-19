@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './modules/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -12,13 +13,17 @@ const routes: Routes = [
     loadChildren: () => import('./modules/movies/movies.module').then((m) => m.MoviesModule),
   },
   {
-    path: 'search',
-    loadChildren: () => import('./modules/search/search.module').then((m) => m.SearchModule),
+    path: 'page-not-found',
+    component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'page-not-found'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
