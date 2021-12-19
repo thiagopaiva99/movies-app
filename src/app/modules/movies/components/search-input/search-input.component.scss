@@ -1,0 +1,53 @@
+@import "/src/assets/scss/variables.scss";
+
+:host {
+  input,
+  button {
+    height: 48px;
+  }
+
+  input {
+    max-width: 664px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: map-get($colors, darkGrey);
+    font-family: "Poppins";
+    border: none;
+    outline: none;
+    color: map-get($colors, white);
+    padding-left: 52px;
+
+    @media (min-width: 321px) and (max-width: 768px) {
+      max-width: 534px;
+    }
+
+    &.with-search-button {
+      width: calc(100% - 82px);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &::placeholder {
+      color: map-get($colors, grey);
+    }
+  }
+
+  button {
+    width: 82px;
+    border: none;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: map-get($colors, blue);
+    padding: 0 16px;
+    font-size: 14px;
+    color: map-get($colors, white);
+    font-family: "Poppins";
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: darken(map-get($colors, blue), 15%);
+    }
+  }
+}
