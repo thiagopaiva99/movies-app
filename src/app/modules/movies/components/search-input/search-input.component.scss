@@ -1,6 +1,19 @@
 @import "/src/assets/scss/variables.scss";
 
 :host {
+  section {
+    position: relative;
+  }
+
+  img {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 30%;
+    left: 15px;
+  }
+
   input,
   button {
     height: 48px;
