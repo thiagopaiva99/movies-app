@@ -60,8 +60,14 @@ The next step for the application tests, is start to doing integration tests to 
 
 I know there are things that I can do better, but for reason times I've decided to the best for the moment, these things are:
 
-- Html responsiveness;
-- Html accessibility;
-- Html semantic;
-- API token versioning (I let it here for be easier at this moment, but for sure it should have not appear on the repository);
-- Loupe and Star icons (I was not able to export them on figma, so I have to search and look for icons);
+- ~~Html responsiveness~~;
+- ~~Html accessibility~~;
+- ~~Html semantic~~;
+- ~~API token versioning (I let it here for be easier at this moment, but for sure it should have not appear on the repository)~~;
+- ~~Loupe and Star icons (I was not able to export them on figma, so I have to search and look for icons)~~;
+
+I've worked on accessibility and semantic, as you can check here on the Google lighthouse report:
+![Lighthouse Report](docs/score-lighthouse.png "Lighthouse Report")
+
+- Best Practices: It is on 93% because I'm running a container locally, so I couldn't add an HTTPS certificate, and that is the reason the "low" score;
+- If you try to run it on the deployed environment, it can result in different results, because vercel does not provide some features like gzip and robots.txt, which affects multiple items on this score, if you want to test it, prefer to run it locally, with docker-compose running, because have the container that should be the most equal as possible the production environment.
