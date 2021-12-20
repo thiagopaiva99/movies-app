@@ -1,5 +1,5 @@
 <div class="movie">
-  <img [lazyLoad]="item.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="Movie Image" />
+  <img [lazyLoad]="item.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ item.title }} Poster" title="{{ item.title }} Poster" />
   <div class="movie-content">
     <span>
       <i>🌟</i> {{ item.voteAverage * 10 }}%

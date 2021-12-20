@@ -1,6 +1,6 @@
 <section *ngIf="movie" class="container">
   <div class="poster-container">
-    <img [lazyLoad]="movie.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="">
+    <img [lazyLoad]="movie.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ movie.title }} Poster" title="{{ movie.title }} Poster">
   </div>
   <div class="movie-information-container">
     <h1>{{ movie.title }}</h1>
@@ -18,7 +18,7 @@
     </section>
     <div #charactersList class="cast">
       <div *ngFor="let character of cast$ | async" class="character">
-        <img [lazyLoad]="character.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="">
+        <img [lazyLoad]="character.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ character.name }} Profile Picture" title="{{ character.name }} Profile Picture">
         <div>
           <h3>{{ character.name }}</h3>
           <h4>{{ character.character }}</h4>
@@ -35,12 +35,12 @@
     </section>
     <div #recommendationsList class="recommendations">
       <div *ngFor="let recommendation of recommendations$ | async" class="recommendation" (click)="onRecommendationClick(recommendation)">
-        <img [lazyLoad]="recommendation.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="">
+        <img [lazyLoad]="recommendation.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ recommendation.title }} Poster" title="{{ recommendation.title }} Poster">
         <div>
           <h3>{{ recommendation.title }}</h3>
         </div>
       </div>
     </div>
   </div>
-  <img [src]="movie.backdropUrl" class="movie-backdrop" alt="">
+  <img [src]="movie.backdropUrl" class="movie-backdrop" alt="{{ movie.title }} Backdrop Image" title="{{ movie.title }} Backdrop Image">
 </section>
