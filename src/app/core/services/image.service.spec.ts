@@ -59,7 +59,7 @@ describe('ImageService', () => {
     const filePath = system.filePath();
     jest.spyOn(configurationService, 'getConfiguration').mockReturnValue(baseUrl);
     const imageUrl = service.getUrl(filePath);
-    expect(imageUrl).toBe(`${baseUrl}w500${filePath}`);
+    expect(imageUrl).toBe(`${baseUrl}w342${filePath}`);
   })
 
   it('should return backdrop image url', () => {
