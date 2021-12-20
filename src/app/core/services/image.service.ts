@@ -27,7 +27,7 @@ export class ImageService {
       return 'w342'
     }
 
-    return 'w500'
+    return 'w342'
   }
 
   getUrl(imagePath: string): string {
