@@ -1,6 +1,6 @@
-<div class="movie">
+<article class="movie">
   <img [lazyLoad]="item.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ item.title }} Poster" title="{{ item.title }} Poster" />
-  <div class="movie-content">
+  <section class="movie-content">
     <span>
       <i>🌟</i> {{ item.voteAverage * 10 }}%
     </span>
@@ -8,5 +8,5 @@
       <h2>{{ item.title }}</h2>
       <p>{{ item.releaseDate | date: 'dd MMM yyyy' }}</p>
     </div>
-  </div>
-</div>
+  </section>
+</article>

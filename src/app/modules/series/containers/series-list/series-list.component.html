@@ -1,10 +1,12 @@
 <section class="container">
-  <h1 class="title">Find Series & More. <br> Explore Now.</h1>
+  <header>
+    <h1 class="title">Find Series & More. <br> Explore Now.</h1>
+  </header>
 
   <app-infinite-scroll (scrolled)="onScroll()">
-    <div class="movies-container" id="a">
+    <main class="movies-container" id="a">
       <app-list-item *ngFor="let serie of series" [item]="serie"></app-list-item>
-    </div>
+    </main>
   </app-infinite-scroll>
   <app-spinner *ngIf="isLoading"></app-spinner>
   <img lazyLoad="/assets/img/homepage-background.jpg" class="movie-backdrop" alt="Series List Backdrop" title="Series List Backdrop" />

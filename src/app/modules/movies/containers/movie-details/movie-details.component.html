@@ -1,8 +1,8 @@
-<section *ngIf="movie" class="container">
-  <div class="poster-container">
+<main *ngIf="movie" class="container">
+  <aside class="poster-container">
     <img [lazyLoad]="movie.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ movie.title }} Poster" title="{{ movie.title }} Poster">
-  </div>
-  <div class="movie-information-container">
+  </aside>
+  <article class="movie-information-container">
     <h1>{{ movie.title }}</h1>
     <div class="movie-content">
       <span>{{ movie.releaseDate | date: 'dd/MM/yyyy' }} ({{ movie.originalLanguage | uppercase }})</span>  -  <span *ngFor="let genre of movie.genres">{{ genre.name }}, </span>
@@ -16,7 +16,7 @@
         <button (click)="slideNext(charactersList)">></button>
       </div>
     </section>
-    <div #charactersList class="cast">
+    <section #charactersList class="cast">
       <div *ngFor="let character of cast$ | async" class="character">
         <img [lazyLoad]="character.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ character.name }} Profile Picture" title="{{ character.name }} Profile Picture">
         <div>
@@ -24,7 +24,7 @@
           <h4>{{ character.character }}</h4>
         </div>
       </div>
-    </div>
+    </section>
 
     <section class="subtitle-container">
       <h2>Recommendations</h2>
@@ -33,14 +33,14 @@
         <button (click)="slideNext(recommendationsList)">></button>
       </div>
     </section>
-    <div #recommendationsList class="recommendations">
+    <section #recommendationsList class="recommendations">
       <div *ngFor="let recommendation of recommendations$ | async" class="recommendation" (click)="onRecommendationClick(recommendation)">
         <img [lazyLoad]="recommendation.imageUrl" defaultImage="/assets/img/default-image.jpg" alt="{{ recommendation.title }} Poster" title="{{ recommendation.title }} Poster">
         <div>
           <h3>{{ recommendation.title }}</h3>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </article>
   <img [src]="movie.backdropUrl" class="movie-backdrop" alt="{{ movie.title }} Backdrop Image" title="{{ movie.title }} Backdrop Image">
-</section>
+</main>

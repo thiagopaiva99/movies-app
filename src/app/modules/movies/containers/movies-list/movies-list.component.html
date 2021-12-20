@@ -1,13 +1,16 @@
 <section class="container">
-  <h1 class="title">Find Movies & More. <br> Explore Now.</h1>
-  <app-search-input (onSearch)="onSearch($event)"></app-search-input>
-  <h2 class="subtitle">Explore Movies</h2>
+  <header>
+    <h1 class="title">Find Movies & More. <br> Explore Now.</h1>
+    <app-search-input (onSearch)="onSearch($event)"></app-search-input>
+    <h2 class="subtitle">Explore Movies</h2>
+  </header>
+
   <app-tab-pills [tabs]="categories" (onTabChange)="onTabChange($event)"></app-tab-pills>
 
   <app-infinite-scroll (scrolled)="onScroll()">
-    <div class="movies-container" id="a">
+    <main class="movies-container" id="a">
       <app-list-item *ngFor="let movie of movies" [item]="movie" (click)="onMovieClick(movie)"></app-list-item>
-    </div>
+    </main>
   </app-infinite-scroll>
   <app-spinner *ngIf="isLoadingMoreMovies"></app-spinner>
   <img lazyLoad="/assets/img/homepage-background.jpg" class="movie-backdrop" alt="Homepage Backdrop" title="Homepage Backdrop">

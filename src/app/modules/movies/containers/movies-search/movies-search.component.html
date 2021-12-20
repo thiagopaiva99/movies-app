@@ -1,12 +1,12 @@
 <section class="container">
-  <div class="search-input-container">
+  <header class="search-input-container">
     <app-search-input [initialValue]="search" [useSearchButton]="false" (onSearch)="onSearch($event)"></app-search-input>
-  </div>
+  </header>
   <h1>Search Results</h1>
   <app-infinite-scroll (scrolled)="onScroll()">
-    <div class="movies-container" *ngIf="movies.length; else emptyListSection">
+    <main class="movies-container" *ngIf="movies.length; else emptyListSection">
       <app-list-item *ngFor="let movie of movies" [item]="movie" (click)="onMovieClick(movie)"></app-list-item>
-    </div>
+    </main>
   </app-infinite-scroll>
   <ng-template #emptyListSection>
     <section *ngIf="!isLoading" class="empty-results-section">
